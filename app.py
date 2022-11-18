@@ -14,9 +14,9 @@ def predict_value():
     cpu = request.form.get('cpu', default_value)
     time = request.form.get('time', default_value)
     inputs = np.array([[memory,disk,cpu]])
-    # result = model.predict(inputs)
-    # data = (result/5)*time
+     result = model.predict(inputs)
+     data = (result/5)*time
   
-    return render_template('index.html', data = inputs)
+    return render_template('index.html', data = data)
 if __name__ == '__main__':
     app.run(debug = True)
